@@ -4,7 +4,7 @@ pipelineJob('GCP/PROD/create-infra-prod') {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-gcp')
+            url('https://github.com/rafstef/demo-gcp.git')
             scriptPath("pipelines/Jenkinsfile")
           }
           branch('*/master')
@@ -20,7 +20,7 @@ pipelineJob('GCP/PREPROD/create-infra-preprod') {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-gcp')
+            url('https://github.com/rafstef/demo-gcp.git')
             scriptPath("pipelines/Jenkinsfile")
           }
           branch('*/release')
@@ -36,8 +36,8 @@ pipelineJob('GCP/DEV/create-infra-dev') {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-gcp')
-            scriptPath("pipelines/Jenkinsfile.groovy")
+            url('https://github.com/rafstef/demo-gcp.git')
+            scriptPath("pipelines/Jenkinsfile")
           }
           branch('*/develop')
         }
@@ -54,7 +54,7 @@ pipelineJob('GCP/DEV/destroy-infra-dev') {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-gcp')
+            url('https://github.com/rafstef/demo-gcp.git')
             scriptPath("pipelines/destroy.groovy")
           }
           branch('*/develop')
@@ -72,7 +72,7 @@ pipelineJob('GCP/PREPROD/destroy-infra-preprod') {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-gcp')
+            url('https://github.com/rafstef/demo-gcp.git')
             scriptPath("pipelines/destroy.groovy")
           }
           branch('*/release')
@@ -88,7 +88,7 @@ pipelineJob('GCP/PROD/destroy-infra-prod') {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-gcp')
+            url('https://github.com/rafstef/demo-gcp.git')
             scriptPath("pipelines/destroy.groovy")
           }
           branch('*/master')
