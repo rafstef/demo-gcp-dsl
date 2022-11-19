@@ -3,9 +3,6 @@ import jenkins.model.GlobalConfiguration
 
 // disable Job DSL script approval
 
-GlobalConfiguration.all().get(GlobalJobDslSecurityConfiguration.class).useScriptSecurity=false
-GlobalConfiguration.all().get(GlobalJobDslSecurityConfiguration.class).save()
-
 pipeline {
     agent any
     stages {
@@ -18,6 +15,7 @@ pipeline {
                 lookupStrategy: 'SEED_JOB'
             }
         }
+
         stage('pipelines') {
             steps {
                 jobDsl scriptText: 'job("pipelines")'
@@ -37,7 +35,6 @@ pipeline {
             notFailBuild: true,
             patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
             [pattern: '.propsfile', type: 'EXCLUDE']])
-            //Send email always
         }
     }
 }
