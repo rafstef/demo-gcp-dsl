@@ -20,7 +20,7 @@ pipeline {
         }
         stage('pipelines') {
             steps {
-                jobDsl scriptText: 'job("DSL/pipelines")'
+                jobDsl scriptText: 'job("pipelines")'
                 jobDsl targets: ['pipelines.groovy'].join('\n'),
                 removedJobAction: 'DELETE',
                 removedViewAction: 'DELETE',
