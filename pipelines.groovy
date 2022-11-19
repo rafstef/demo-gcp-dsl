@@ -1,10 +1,10 @@
-pipelineJob('AWS/INFRA/PROD/prod-demo-terraform-ec2') {
+pipelineJob('GCP/create-infra-prod') {
   definition {
     cpsScm {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-terraform-ec2')
+            url('https://github.com/rafstef/demo-gcp')
             scriptPath("pipelines/Jenkinsfile")
           }
           branch('*/master')
@@ -14,13 +14,13 @@ pipelineJob('AWS/INFRA/PROD/prod-demo-terraform-ec2') {
     }
   }
 }
-pipelineJob('AWS/INFRA/NOPROD/preprod-demo-terraform-ec2') {
+pipelineJob('GCP/create-infra-preprod') {
   definition {
     cpsScm {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-terraform-ec2')
+            url('https://github.com/rafstef/demo-gcp')
             scriptPath("pipelines/Jenkinsfile")
           }
           branch('*/release')
@@ -30,36 +30,14 @@ pipelineJob('AWS/INFRA/NOPROD/preprod-demo-terraform-ec2') {
     }
   }
 }
-pipelineJob('AWS/INFRA/NOPROD/preprod-destroy-demo-terraform-ec2') {
+pipelineJob('GCP/create-infra-dev') {
   definition {
     cpsScm {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-terraform-ec2')
-            scriptPath("pipelines/destroy.groovy")
-          }
-          branch('*/release')
-        }
-      }
-      lightweight()
-    }
-  }
-  triggers {
-        gitlabPush {
-            buildOnMergeRequestEvents(true)
-    }
-  }
-}
-
-pipelineJob('AWS/INFRA/NOPROD/dev-destroy-demo-terraform-ec2') {
-  definition {
-    cpsScm {
-      scm {
-        git {
-          remote {
-            url('https://github.com/rafstef/demo-terraform-ec2')
-            scriptPath("pipelines/destroy.groovy")
+            url('https://github.com/rafstef/demo-gcp')
+            scriptPath("pipelines/Jenkinsfile.groovy")
           }
           branch('*/develop')
         }
@@ -68,14 +46,16 @@ pipelineJob('AWS/INFRA/NOPROD/dev-destroy-demo-terraform-ec2') {
     }
   }
 }
-pipelineJob('AWS/INFRA/NOPROD/dev-demo-terraform-ec2') {
+
+
+pipelineJob('GCP/destroy-infra-dev') {
   definition {
     cpsScm {
       scm {
         git {
           remote {
-            url('https://github.com/rafstef/demo-terraform-ec2')
-            scriptPath("pipelines/Jenkinsfile")
+            url('https://github.com/rafstef/demo-gcp')
+            scriptPath("pipelines/destroy.groovy")
           }
           branch('*/develop')
         }
