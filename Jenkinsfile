@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Folders') {
             steps {
-                jobDsl scriptText: 'job("DSL/folders")'
+                jobDsl scriptText: 'job("folders")'
                 jobDsl targets: ['folders.groovy'].join('\n'),
                 removedJobAction: 'DELETE',
                 removedViewAction: 'DELETE',
