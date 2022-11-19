@@ -1,4 +1,4 @@
-pipelineJob('GCP/create-infra-prod') {
+pipelineJob('GCP/PROD/create-infra-prod') {
   definition {
     cpsScm {
       scm {
@@ -14,7 +14,7 @@ pipelineJob('GCP/create-infra-prod') {
     }
   }
 }
-pipelineJob('GCP/create-infra-preprod') {
+pipelineJob('GCP/PREPROD/create-infra-preprod') {
   definition {
     cpsScm {
       scm {
@@ -30,7 +30,7 @@ pipelineJob('GCP/create-infra-preprod') {
     }
   }
 }
-pipelineJob('GCP/create-infra-dev') {
+pipelineJob('GCP/DEV/create-infra-dev') {
   definition {
     cpsScm {
       scm {
@@ -48,7 +48,7 @@ pipelineJob('GCP/create-infra-dev') {
 }
 
 
-pipelineJob('GCP/destroy-infra-dev') {
+pipelineJob('GCP/DEV/destroy-infra-dev') {
   definition {
     cpsScm {
       scm {
@@ -66,7 +66,7 @@ pipelineJob('GCP/destroy-infra-dev') {
 }
 
 
-pipelineJob('GCP/destroy-infra-preprod') {
+pipelineJob('GCP/PREPROD/destroy-infra-preprod') {
   definition {
     cpsScm {
       scm {
@@ -82,7 +82,7 @@ pipelineJob('GCP/destroy-infra-preprod') {
     }
   }
 }
-pipelineJob('GCP/destroy-infra-prod') {
+pipelineJob('GCP/PROD/destroy-infra-prod') {
   definition {
     cpsScm {
       scm {
