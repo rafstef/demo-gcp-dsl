@@ -64,3 +64,37 @@ pipelineJob('GCP/destroy-infra-dev') {
     }
   }
 }
+
+
+pipelineJob('GCP/destroy-infra-preprod') {
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote {
+            url('https://github.com/rafstef/demo-gcp')
+            scriptPath("pipelines/destroy.groovy")
+          }
+          branch('*/release')
+        }
+      }
+      lightweight()
+    }
+  }
+}
+pipelineJob('GCP/destroy-infra-prod') {
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote {
+            url('https://github.com/rafstef/demo-gcp')
+            scriptPath("pipelines/destroy.groovy")
+          }
+          branch('*/master')
+        }
+      }
+      lightweight()
+    }
+  }
+}
